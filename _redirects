@@ -1,0 +1,8 @@
+# Force www -> apex
+https://www.phi-mapping.org/*  https://phi-mapping.org/:splat  301!
+
+# SPA-style fallback for client-side routing (keeps deep-links working)
+/*  /index.html  200
+
+# Example: redirect old pages (uncomment and adjust as needed)
+# /about.html  /about  301
