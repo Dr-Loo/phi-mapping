@@ -1,4 +1,4 @@
-﻿# serve real files exactly
+# serve real files exactly
 /robots.txt             /robots.txt                         200
 /sitemap.xml            /sitemap.xml                        200
 /.well-known/*          /.well-known/:splat                 200
