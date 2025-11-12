@@ -1,7 +1,10 @@
-/contact                /contact.html                      200
-/robots.txt             /robots.txt                         200
-/sitemap.xml            /sitemap.xml                        200
-/.well-known/*          /.well-known/:splat                 200
-/security.txt           /.well-known/security.txt           301
-http://phi-mapping.org/*        https://phi-mapping.org/:splat      301!
-https://www.phi-mapping.org/*   https://phi-mapping.org/:splat      301!
+﻿# real files (no SPA catch-all)
+ /contact                /contact.html                      200
+ /robots.txt             /robots.txt                         200
+ /sitemap.xml            /sitemap.xml                        200
+ /.well-known/*          /.well-known/:splat                 200
+
+# convenience + canonical host
+ /security.txt           /.well-known/security.txt           301
+ http://phi-mapping.org/*        https://phi-mapping.org/:splat      301!
+ https://www.phi-mapping.org/*   https://phi-mapping.org/:splat      301!

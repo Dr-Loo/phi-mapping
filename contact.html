@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact • Φ-mapping</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/css/contact-form-styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Contact us</h1>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none">
+        <label>Don’t fill this out: <input name="bot-field"></label>
+      </p>
+      <label>Your name<br><input type="text" name="name" required></label>
+      <label>Your email<br><input type="email" name="email" required></label>
+      <label>Message<br><textarea name="message" rows="6" required></textarea></label>
+      <label><input type="checkbox" name="consent" required> I consent to being contacted about this inquiry.</label>
+      <button type="submit">Send</button>
+    </form>
+    <p>Prefer email? <a href="mailto:info@phi-mapping.org">info@phi-mapping.org</a></p>
+  </main>
+</body>
+</html>
