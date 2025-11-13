@@ -1,33 +1,170 @@
-<!-- demo.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Φ-Mapping Demo</title>
-  <link rel="stylesheet" href="css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Φ-Mapping demo: example of sequence-level thermodynamic validation for DNA computation.">
+    <meta name="keywords" content="DNA computation demo, thermodynamic modeling, sequence validation, torsion index map">
+    <title>Demo | Φ-Mapping</title>
+    
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contact-form-styles.css">
 </head>
 <body>
-  <header class="header-simple">
-    <div class="container">
-      <h1>Demo</h1>
-      <a href="index.html">&larr; Back to Home</a>
-    </div>
-  </header>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="logo">Φ-Mapping</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/standard.html">Standards</a></li>
+                <li><a href="/how-it-works.html">How It Works</a></li>
+                <li><a href="/demo.html" class="active">Demo</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <main class="container">
-    <p>Paste your DNA sequence or upload a design (FASTA/NUPACK). Get your <strong>Φ-Score</strong>, <strong>S<sub>sym</sub> profile</strong>, and <strong>failure risk estimate</strong>.</p>
+    <!-- Hero -->
+    <section class="hero-gradient">
+        <div class="container">
+            <h1>Demo: Φ-Mapping in Practice</h1>
+            <p class="hero-subtitle">A simple example of sequence-level thermodynamic analysis, structural stress mapping, and compliance scoring.</p>
+        </div>
+    </section>
 
-    <div class="demo-placeholder">
-      <img src="img/demo-placeholder.png" alt="Demo screenshot placeholder">
-      <p><em>Example output: B-7 Nanovaccine → Φ-Score: 87/100, Success: 92%</em></p>
-    </div>
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">From Sequence to Stability Assessment</h2>
+            <p>This demo walks through a single construct analyzed by Φ-Mapping. It shows how a raw DNA sequence becomes a set of thermodynamic metrics, a Torsion Index Map, and an overall compliance score that predicts synthesis stability and operational reliability.</p>
+        </div>
+    </section>
 
-    <p><strong>Note:</strong> Full API integration available under pilot license.</p>
-  </main>
+    <!-- Input Example -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Example Input</h2>
+            <p>Φ-Mapping accepts standard formats such as FASTA, GenBank, and SBOL, as well as raw sequence strings. Here is a simplified FASTA example.</p>
+            <div class="code-example-box">
+                <h4>Input (FASTA)</h4>
+                <pre><code>&gt;construct_ABC_v3
+ATGACCATGATTACGCCAAGCTTGCAGGTCGACTCTAGAGGATCCCCGGGTACCGAGCTCGAATTCGCGGCCGCACTAGT
+GCTAGCGGCCGCTGCAGGTCGACGGTACCGAGCTCGAATTCCTGCAGGCATGCAAGCTTGAATTCGCGGCCGCTGCAG
+                </code></pre>
+            </div>
+            <p>In a real integration, sequences are submitted programmatically through the API or automatically from design tools and LIMS systems.</p>
+        </div>
+    </section>
 
-  <footer class="container">
-    <p class="dev-banner">STAGING – NOT PUBLIC</p>
-  </footer>
+    <!-- Output Example -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Example Output</h2>
+            <p>The sequence above produces the following result structure. Values are representative, illustrating how symbolic entropy, structural stress metrics, and compliance scores are reported.</p>
+            <div class="code-example-box">
+                <h4>Output (JSON)</h4>
+                <pre><code>{
+  "sequence_id": "construct_ABC_v3",
+  "length": 842,
+  "metrics": {
+    "symbolic_entropy": 0.41,
+    "compliance_score": 0.79,
+    "classification": "marginal",
+    "torsion_index_max": 2.4,
+    "torsion_hotspot_count": 3
+  },
+  "torsion_index_map": [
+    {"position": 120, "index": 2.1},
+    {"position": 421, "index": 2.4},
+    {"position": 685, "index": 2.2}
+  ],
+  "hotspots": [
+    {"position": 421, "severity": 0.82, "type": "GC_cluster"},
+    {"position": 685, "severity": 0.76, "type": "repeat_structure"},
+    {"position": 712, "severity": 0.69, "type": "secondary_structure"}
+  ],
+  "recommendation": "Sequence is marginal. Consider optimizing regions around positions 421 and 685 to improve stability before synthesis."
+}</code></pre>
+            </div>
+            <p>The key outputs are the symbolic entropy score, the compliance score, and the Torsion Index Map. Together, they form a structural stress map at sequence level, identifying where the construct is most likely to experience thermodynamic instability.</p>
+        </div>
+    </section>
+
+    <!-- Interpretation -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Interpreting the Results</h2>
+            <p>The compliance score of 0.79 places this construct in the marginal range. It is likely to synthesize, but with elevated risk compared to a stable sequence. The Torsion Index Map reveals three structural stress hotspots, with the most severe at position 421. Targeted redesign of these regions can often convert a marginal construct into a stable one without changing the rest of the sequence.</p>
+            <p>Teams often use automated rules based on these metrics. For example, constructs with compliance scores above 0.8 may be accepted automatically, those between 0.6 and 0.8 may require manual review, and those below 0.6 may be flagged for redesign before any synthesis orders are placed.</p>
+        </div>
+    </section>
+
+    <!-- Integration Preview -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">How This Fits Into a Pipeline</h2>
+            <p>In practice, hundreds or thousands of sequences are processed at once. Φ-Mapping is typically integrated as a validation step between design and synthesis. Design tools export sequences, Φ-Mapping computes sequence-level thermodynamic metrics and structural stress maps, and only sequences that meet stability requirements continue to fabrication.</p>
+            <p>This reduces synthesis failures, shortens troubleshooting cycles, and gives both designers and synthesis providers a shared, quantitative language for discussing thermodynamic risk.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="content-section bg-light">
+        <div class="container cta-box">
+            <h2>Request a Full Demo</h2>
+            <p>A full demonstration can use your own sequence data or benchmark datasets and can include retrospective and prospective validation analysis. Sessions can be tailored for DNA foundries, bio-computing labs, or governance teams.</p>
+            <div class="cta-buttons">
+                <a href="/contact.html?type=demo" class="btn-primary">Request Live Demo</a>
+                <a href="/standard.html#validation" class="btn-secondary">Review Validation Standards</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Φ-Mapping</h3>
+                    <p>Sequence-level thermodynamic validation for DNA computing.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/standard.html">Standards</a></li>
+                        <li><a href="/how-it-works.html">How It Works</a></li>
+                        <li><a href="/demo.html">Demo</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/security.txt">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@phi-mapping.org">General Inquiries</a></li>
+                        <li><a href="mailto:licensing@phi-mapping.org">Commercial Licensing</a></li>
+                        <li><a href="mailto:research@phi-mapping.org">Research Collaboration</a></li>
+                        <li><a href="mailto:policy@phi-mapping.org">Policy & Standards</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Φ-Mapping. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
 </body>
 </html>

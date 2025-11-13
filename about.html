@@ -1,41 +1,130 @@
-<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Φ-Mapping</title>
-  <link rel="stylesheet" href="css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Φ-Mapping: sequence-level thermodynamic modeling for reliable DNA computation.">
+    <meta name="keywords" content="DNA computation, thermodynamic modeling, DNA synthesis, stability analysis, phi-mapping">
+    <title>About | Φ-Mapping</title>
+    
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header class="header-simple">
-    <div class="container">
-      <h1>About Φ-Mapping</h1>
-      <a href="index.html">&larr; Back to Home</a>
-    </div>
-  </header>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="logo">Φ-Mapping</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/standard.html">Standards</a></li>
+                <li><a href="/how-it-works.html">How It Works</a></li>
+                <li><a href="/demo.html">Demo</a></li>
+                <li><a href="/about.html" class="active">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <main class="container">
-    <p>Φ-Mapping quantifies <strong>symbolic entropy (S<sub>sym</sub>)</strong> and <strong>torsion field coherence</strong> in DNA nanostructures, logic gates, and synthetic circuits—providing a thermodynamic risk score before synthesis.</p>
+    <!-- Hero -->
+    <section class="hero-gradient">
+        <div class="container">
+            <h1>About Φ-Mapping</h1>
+            <p class="hero-subtitle">Sequence-level thermodynamic modeling for reliable DNA computation and synthesis.</p>
+        </div>
+    </section>
 
-    <h2>Key Features</h2>
-    <ul>
-      <li>✅ Predicts structural fragility & synthesis failure</li>
-      <li>✅ Scores topological designs (linear vs. branched vs. cyclic)</li>
-      <li>✅ Outputs compliance score (0–100 Φ-units)</li>
-      <li>✅ Integrates via API or standalone CLI</li>
-    </ul>
+    <!-- Mission -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Mission</h2>
+            <p>Φ-Mapping exists to make DNA computation and synthetic biology more reliable, predictable, and auditable. As DNA is used for storage, logic, and complex constructs, small sequence instabilities can translate into large experimental and operational failures. Our goal is to provide a practical validation layer that quantifies these risks before fabrication.</p>
+            <p>Instead of replacing existing design tools, Φ-Mapping focuses on sequence-level thermodynamic modeling. It analyzes how a sequence is likely to behave under real synthesis and operational conditions and produces stability scores, structural stress maps, and compliance recommendations that plug into existing workflows.</p>
+        </div>
+    </section>
 
-    <h2>What It Is NOT</h2>
-    <ul>
-      <li>Not a simulator</li>
-      <li>Not a sequence optimizer</li>
-      <li>Not a theoretical framework</li>
-    </ul>
-  </main>
+    <!-- What Φ-Mapping Provides -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">What Φ-Mapping Provides</h2>
+            <p>Φ-Mapping evaluates DNA constructs at three complementary levels. First, it computes symbolic entropy scores that summarize global thermodynamic organization. Second, it generates a Torsion Index Map, a sequence-level structural stress map that highlights mechanically stressed regions. Third, it combines these signals into a compliance score that classifies sequences as stable, marginal, or unstable for synthesis and computation.</p>
+            <p>These outputs are designed to be easy to integrate. A single compliance score can drive automated decisions in CAD tools and LIMS systems, while detailed hotspot information supports expert review and redesign of specific regions without changing the rest of the construct.</p>
+        </div>
+    </section>
 
-  <footer class="container">
-    <p class="dev-banner">STAGING – NOT PUBLIC</p>
-  </footer>
+    <!-- Who Uses It -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Who Uses Φ-Mapping</h2>
+            <p>DNA synthesis providers use Φ-Mapping as a pre-screening step before accepting customer orders. This reduces costly failures, saves reagents, and improves turnaround times. Bio-computing labs use it to validate DNA logic gates and circuits for stability before running complex experiments. Governance and policy teams use the metrics as building blocks for emerging standards in biological computation and DNA-based AI systems.</p>
+            <p>In all cases, Φ-Mapping functions as a modular validation layer. It does not dictate design choices, but provides quantitative feedback about thermodynamic stability, structural stress, and risk of failure.</p>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Approach</h2>
+            <p>Under the hood, Φ-Mapping combines sequence-level thermodynamic modeling, structural stress analysis, and information-theoretic scoring. These methods are calibrated against real synthesis data so that abstract metrics have direct, operational meaning: an unstable classification is not just a label, but a measurable increase in failure probability.</p>
+            <p>The implementation is designed for both research and production environments. Cloud endpoints support rapid evaluation and integration tests. Containerized deployments allow use in high-security or air-gapped environments where sequence data must remain on-premises.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="content-section">
+        <div class="container cta-box">
+            <h2>Work With Φ-Mapping</h2>
+            <p>If you are building or operating DNA foundries, developing DNA-based computation, or designing policy for biological AI systems, Φ-Mapping can provide the thermodynamic validation layer you need.</p>
+            <div class="cta-buttons">
+                <a href="/contact.html" class="btn-primary">Contact Us</a>
+                <a href="/standard.html" class="btn-secondary">Read the Standards</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Φ-Mapping</h3>
+                    <p>Sequence-level thermodynamic validation for DNA computing.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/standard.html">Standards</a></li>
+                        <li><a href="/how-it-works.html">How It Works</a></li>
+                        <li><a href="/demo.html">Demo</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/security.txt">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@phi-mapping.org">General Inquiries</a></li>
+                        <li><a href="mailto:licensing@phi-mapping.org">Commercial Licensing</a></li>
+                        <li><a href="mailto:research@phi-mapping.org">Research Collaboration</a></li>
+                        <li><a href="mailto:policy@phi-mapping.org">Policy & Standards</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Φ-Mapping. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
 </body>
 </html>
