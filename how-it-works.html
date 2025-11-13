@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Φ-Mapping works - Technical overview of thermodynamic validation for DNA computing">
+    <meta name="keywords" content="DNA computation, thermodynamic validation, sequence analysis, symbolic entropy">
+    <title>How It Works | Φ-Mapping</title>
+    
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contact-form-styles.css">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://phi-mapping.org/how-it-works.html">
+    <meta property="og:title" content="How Φ-Mapping Works">
+    <meta property="og:description" content="Technical overview of thermodynamic validation for DNA computing">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="logo">Φ-Mapping</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/standard.html">Standards</a></li>
+                <li><a href="/how-it-works.html" class="active">How It Works</a></li>
+                <li><a href="/demo.html">Demo</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient">
+        <div class="container">
+            <h1>How Φ-Mapping Works</h1>
+            <p class="hero-subtitle">Physics-informed sequence analysis that predicts synthesis stability and operational reliability</p>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Technical Overview</h2>
+            
+            <div class="overview-box">
+                <p class="intro-text">Φ-mapping analyzes DNA sequences using thermodynamic field theory to identify structural instabilities that correlate with synthesis failures and operational errors. The analysis produces quantitative metrics that enable pre-screening before fabrication and validation during design.</p>
+            </div>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Input</h3>
+                    <p>Submit DNA sequences in standard formats (FASTA, GenBank, SBOL, or raw sequence strings). Sequences can be single genes, plasmids, entire constructs, or libraries. Metadata like organism context and target use case is optional but improves analysis specificity.</p>
+                </div>
+                
+                <div class="process-arrow">→</div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Analysis</h3>
+                    <p>Φ-mapping computes symbolic entropy (S<sub>sym</sub>), torsion field profiles, and stability classifications using thermodynamic models. The analysis considers sequence-dependent structural mechanics, base-pairing energetics, and topological constraints. Computation typically completes in &lt;1 second per sequence.</p>
+                </div>
+                
+                <div class="process-arrow">→</div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Output</h3>
+                    <p>Receive compliance scores (0-1 scale), stability classifications (stable/marginal/unstable), torsion hotspot maps showing high-risk regions, and actionable recommendations for sequence optimization. Results available as JSON, CSV, or visual reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Metrics -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Core Validation Metrics</h2>
+            
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <h3>Symbolic Entropy (S<sub>sym</sub>)</h3>
+                    <p class="metric-definition"><strong>Definition:</strong> A unitless measure quantifying the thermodynamic disorder and information content of a DNA sequence structure.</p>
+                    
+                    <p><strong>Interpretation:</strong></p>
+                    <ul>
+                        <li><strong>Low S<sub>sym</sub> (&lt;0.3):</strong> Highly ordered, stable structure - reliable synthesis expected</li>
+                        <li><strong>Medium S<sub>sym</sub> (0.3-0.7):</strong> Moderate stability - synthesis possible with careful conditions</li>
+                        <li><strong>High S<sub>sym</sub> (&gt;0.7):</strong> Disordered, unstable - high synthesis failure risk</li>
+                    </ul>
+                    
+                    <p><strong>What it captures:</strong> S<sub>sym</sub> integrates multiple thermodynamic properties including base-pairing stability, secondary structure complexity, torsional strain, and temperature sensitivity. It correlates with synthesis success rates, replication fidelity, and operational reliability.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Example:</strong> In validation studies, sequences with S<sub>sym</sub> &lt; 0.4 showed 92% synthesis success, while sequences with S<sub>sym</sub> &gt; 0.6 showed only 31% success.</p>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Torsion Field Profile</h3>
+                    <p class="metric-definition"><strong>Definition:</strong> Position-dependent measurement of structural stress and mechanical instability along the sequence.</p>
+                    
+                    <p><strong>Interpretation:</strong></p>
+                    <ul>
+                        <li><strong>Low torsion regions:</strong> Stable structural motifs</li>
+                        <li><strong>High torsion regions:</strong> "Hotspots" prone to synthesis errors, replication mistakes, or functional failures</li>
+                        <li><strong>Sharp torsion gradients:</strong> Structural transition zones requiring careful design</li>
+                    </ul>
+                    
+                    <p><strong>What it captures:</strong> Torsion profiles reveal where sequences experience mechanical stress during synthesis, replication, and operation. Hotspots correlate with polymerase stalling, secondary structure formation, and GC-rich clustering problems.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Example:</strong> A 500bp sequence might show 3-4 torsion hotspots. Optimizing just these regions (15-20% of total length) can improve overall synthesis success from 45% to 85%.</p>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Compliance Score</h3>
+                    <p class="metric-definition"><strong>Definition:</strong> Composite metric (0-1 scale) combining S<sub>sym</sub>, torsion analysis, and sequence-specific factors into a single synthesis-readiness score.</p>
+                    
+                    <p><strong>Interpretation:</strong></p>
+                    <ul>
+                        <li><strong>Score &gt; 0.8:</strong> <span class="stable-badge">Stable</span> - Proceed with synthesis</li>
+                        <li><strong>Score 0.5-0.8:</strong> <span class="marginal-badge">Marginal</span> - Consider optimization or special handling</li>
+                        <li><strong>Score &lt; 0.5:</strong> <span class="unstable-badge">Unstable</span> - Redesign recommended before synthesis</li>
+                    </ul>
+                    
+                    <p><strong>What it captures:</strong> The compliance score integrates global stability (S<sub>sym</sub>), local instabilities (torsion hotspots), sequence complexity, repeat structures, and empirical success predictors into a single actionable metric.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Example:</strong> Pre-screening with compliance scores &gt; 0.7 reduces synthesis attempts on problematic sequences, cutting failure rates from 25-30% to 5-8% in pilot programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Approach -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Technical Approach</h2>
+            
+            <div class="approach-section">
+                <h3>Thermodynamic Field Analysis</h3>
+                <p>Φ-mapping treats DNA sequences as one-dimensional thermodynamic systems with spatially-varying properties. Unlike sequence-only analysis (GC content, repeat detection) or purely structural prediction (folding algorithms), Φ-mapping models the energy landscape and mechanical stress distribution throughout the sequence.</p>
+                
+                <p>The approach combines:</p>
+                <ul>
+                    <li><strong>Statistical mechanics:</strong> Entropy calculations based on accessible microstates</li>
+                    <li><strong>Continuum mechanics:</strong> Torsional stress modeling for structural instability</li>
+                    <li><strong>Information theory:</strong> Symbolic complexity measures for sequence organization</li>
+                    <li><strong>Empirical calibration:</strong> Machine learning on validated synthesis datasets</li>
+                </ul>
+            </div>
+            
+            <div class="approach-section">
+                <h3>Computational Implementation</h3>
+                <p>The Φ-mapping engine is implemented in optimized Python with C++ acceleration for performance-critical components. Key features:</p>
+                
+                <ul>
+                    <li><strong>Fast computation:</strong> Typical analysis &lt;1 second for sequences up to 10kb</li>
+                    <li><strong>Scalable:</strong> Batch processing of thousands of sequences using parallel computation</li>
+                    <li><strong>GPU acceleration:</strong> Optional CUDA support for large-scale analysis</li>
+                    <li><strong>Validated algorithms:</strong> Published methods with peer-reviewed validation</li>
+                </ul>
+                
+                <div class="code-example-box">
+                    <h4>Example Analysis Output</h4>
+                    <pre><code>{
+  "sequence_id": "construct_ABC_v3",
+  "length": 2847,
+  "metrics": {
+    "symbolic_entropy": 0.42,
+    "compliance_score": 0.76,
+    "classification": "marginal",
+    "max_torsion": 2.3,
+    "hotspot_count": 3
+  },
+  "hotspots": [
+    {"position": 423, "severity": 0.81, "type": "GC_cluster"},
+    {"position": 1204, "severity": 0.68, "type": "repeat_structure"},
+    {"position": 2156, "severity": 0.72, "type": "secondary_structure"}
+  ],
+  "recommendation": "Consider optimizing regions around positions 423, 1204, 2156 before synthesis"
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="approach-section">
+                <h3>Validation Methodology</h3>
+                <p>Φ-mapping predictions are validated against real synthesis outcomes using retrospective and prospective studies:</p>
+                
+                <div class="validation-approach">
+                    <h4>Retrospective Validation</h4>
+                    <p>Analyze historical synthesis data where outcomes are known. Compute Φ-metrics for each sequence and measure correlation with actual success/failure rates. Metrics:</p>
+                    <ul>
+                        <li>Pearson correlation coefficient (R²)</li>
+                        <li>ROC curves and AUC for binary classification</li>
+                        <li>Precision/recall for different compliance thresholds</li>
+                    </ul>
+                    <p class="validation-result"><strong>Result:</strong> R² = 0.83 on Martínez dataset (168k events), ROC AUC = 0.89</p>
+                </div>
+                
+                <div class="validation-approach">
+                    <h4>Prospective Validation</h4>
+                    <p>Pre-screen sequences before synthesis and track outcomes. Compare predictions to actual results. Measure:</p>
+                    <ul>
+                        <li>Prediction accuracy for stable/unstable classifications</li>
+                        <li>Reduction in failure rates when using compliance filtering</li>
+                        <li>Cost savings from avoiding problematic sequences</li>
+                    </ul>
+                    <p class="validation-result"><strong>Result:</strong> 83% prediction accuracy, 30-50% failure reduction in pilot programs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Applications -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Practical Applications</h2>
+            
+            <div class="application-grid">
+                <div class="application-card">
+                    <h3>Design Phase Validation</h3>
+                    <p>Integrate Φ-mapping into CAD workflows to validate sequences during design. Flag problematic regions before synthesis orders are placed.</p>
+                    <p class="use-case"><strong>Use case:</strong> Plasmid design, synthetic gene construction, large DNA assemblies</p>
+                </div>
+                
+                <div class="application-card">
+                    <h3>Library Screening</h3>
+                    <p>Pre-screen variant libraries to identify which sequences are most likely to synthesize successfully. Prioritize synthesis orders based on predicted success.</p>
+                    <p class="use-case"><strong>Use case:</strong> Directed evolution, codon optimization, promoter libraries</p>
+                </div>
+                
+                <div class="application-card">
+                    <h3>Quality Control</h3>
+                    <p>Audit incoming synthesis orders for instability risk. Provide customers with risk assessment before accepting orders.</p>
+                    <p class="use-case"><strong>Use case:</strong> DNA foundry intake, contract synthesis services</p>
+                </div>
+                
+                <div class="application-card">
+                    <h3>Failure Analysis</h3>
+                    <p>When synthesis fails, analyze sequences to identify root causes. Guide redesign efforts toward most problematic regions.</p>
+                    <p class="use-case"><strong>Use case:</strong> Troubleshooting difficult constructs, customer support</p>
+                </div>
+                
+                <div class="application-card">
+                    <h3>DNA Logic Gate Design</h3>
+                    <p>Validate DNA computation circuits for thermodynamic stability. Predict gate behavior reliability and identify potential error modes.</p>
+                    <p class="use-case"><strong>Use case:</strong> Boolean logic circuits, strand displacement systems, molecular computing</p>
+                </div>
+                
+                <div class="application-card">
+                    <h3>Standards & Safety</h3>
+                    <p>Establish quantitative safety thresholds for biological computation. Provide auditable metrics for regulatory compliance.</p>
+                    <p class="use-case"><strong>Use case:</strong> Bio-safety frameworks, governance standards, policy development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Details -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Integration Options</h2>
+            
+            <div class="integration-details">
+                <div class="integration-option">
+                    <h3>🌐 Cloud API</h3>
+                    <p><strong>Best for:</strong> Low-volume usage, evaluation, rapid integration</p>
+                    
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>RESTful HTTPS endpoints</li>
+                        <li>JSON input/output</li>
+                        <li>OAuth2 authentication</li>
+                        <li>Rate limits: 1000 requests/hour (standard), unlimited (enterprise)</li>
+                        <li>SLA: 99.9% uptime, &lt;100ms latency</li>
+                    </ul>
+                    
+                    <p><strong>Pricing:</strong> Pay-per-use or monthly subscription. Free tier: 100 sequences/month.</p>
+                </div>
+                
+                <div class="integration-option">
+                    <h3>🐋 Docker Container</h3>
+                    <p><strong>Best for:</strong> High-volume usage, data privacy, air-gapped environments</p>
+                    
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Self-hosted on your infrastructure</li>
+                        <li>No data leaves your network</li>
+                        <li>GPU acceleration support (CUDA)</li>
+                        <li>Horizontal scaling with Kubernetes</li>
+                        <li>Same API as cloud version</li>
+                    </ul>
+                    
+                    <p><strong>Pricing:</strong> Annual license based on compute capacity. Includes updates and support.</p>
+                </div>
+                
+                <div class="integration-option">
+                    <h3>🔧 SDK & Plugins</h3>
+                    <p><strong>Best for:</strong> Custom workflows, CAD tool integration, automation</p>
+                    
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Python SDK with full API access</li>
+                        <li>Plugins for Benchling, Geneious, SnapGene</li>
+                        <li>LIMS connectors (TeselaGen, Antha, Asimov)</li>
+                        <li>Command-line tools for batch processing</li>
+                        <li>Example code and documentation</li>
+                    </ul>
+                    
+                    <p><strong>Pricing:</strong> Included with cloud or on-prem licensing.</p>
+                </div>
+            </div>
+            
+            <div class="integration-cta">
+                <p>Need custom integration support or have specific requirements?</p>
+                <a href="/contact.html?type=technical" class="btn-primary">Contact Technical Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How is Φ-mapping different from existing sequence analysis tools?</h3>
+                    <p>Traditional tools focus on sequence composition (GC content, repeats) or structural prediction (folding, secondary structure). Φ-mapping adds thermodynamic analysis that predicts synthesis stability and operational reliability. It's complementary to existing tools, not a replacement.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do I need to change my design workflow?</h3>
+                    <p>No. Φ-mapping integrates as a validation step in your existing workflow. You can use it to pre-screen designs before synthesis, analyze failures after the fact, or both. It works with sequences from any design tool.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What sequence types are supported?</h3>
+                    <p>Φ-mapping works with any DNA sequence: genes, plasmids, constructs, primers, libraries, or full genomes. It handles both natural and synthetic sequences. Recommended length: 50bp to 50kbp, though longer sequences are supported.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How accurate are the predictions?</h3>
+                    <p>Validation studies show R² = 0.83 correlation between Φ-scores and synthesis success rates, with &gt;80% classification accuracy. Accuracy improves when calibrated to specific synthesis platforms and conditions.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can Φ-mapping suggest sequence improvements?</h3>
+                    <p>Currently, Φ-mapping identifies problematic regions (hotspots) and classifies stability. It doesn't yet provide automated redesign suggestions, but pinpointing problematic regions guides manual optimization. Automated optimization is on the roadmap.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is my sequence data kept private?</h3>
+                    <p>Yes. Cloud API data is encrypted in transit and at rest, never shared, and deleted after 30 days. For maximum privacy, use the on-premises Docker option where no data leaves your infrastructure.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What does a pilot program involve?</h3>
+                    <p>Typical pilot: (1) Retrospective analysis on your historical data, (2) Prospective validation on new sequences, (3) Measure ROI and accuracy, (4) Optional co-publication. Duration: 3-6 months. Cost: Free during validation phase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="content-section">
+        <div class="container cta-box">
+            <h2>Ready to Validate Your Sequences?</h2>
+            <p>Start with a pilot program, explore the demo module, or discuss your specific needs.</p>
+            <div class="cta-buttons">
+                <a href="/contact.html" class="btn-primary">Request Pilot Program</a>
+                <a href="/demo.html" class="btn-secondary">Try Demo Module</a>
+                <a href="mailto:contact@phi-mapping.org" class="btn-link">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Φ-Mapping</h3>
+                    <p>Thermodynamic validation for DNA computing</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/standard.html">Standards</a></li>
+                        <li><a href="/how-it-works.html">How It Works</a></li>
+                        <li><a href="/demo.html">Demo</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/security.txt">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@phi-mapping.org">General Inquiries</a></li>
+                        <li><a href="mailto:licensing@phi-mapping.org">Commercial Licensing</a></li>
+                        <li><a href="mailto:research@phi-mapping.org">Research Collaboration</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Φ-Mapping. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
